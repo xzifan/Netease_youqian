@@ -1,0 +1,123 @@
+<swiper class="swiper" indicator-dots="true">  
+    <swiper-item class="swiper-month">
+        <view class="swiper-content">
+            <van-row>
+                <van-col span="24">
+                    <span class="swiper-title" style="span:24">
+                        本月支出 (元)
+                    </span>
+                </van-col>
+            </van-row>
+            <van-row>
+                <van-col span="24">
+                    <span class="swiper-amount">
+                        ￥6800.00
+                    </span>
+                </van-col>
+            </van-row>
+            <van-icon name="password-view" class="amount-view"></van-icon>
+            <van-row>
+                <van-col span="10">
+                    <span class="swiper-title">
+                        本月收入 <a class="mon-income">暂无收入</a>
+                    </span>
+                </van-col>
+                <van-col span="8" offset="1">
+                    <span class="swiper-title">
+                        设置预算
+                        <van-icon name="edit"></van-icon>
+                    </span>
+                </van-col>
+                
+            </van-row>
+
+        </view>
+    </swiper-item> 
+    <swiper-item class="swiper-asset">
+        <view class="swiper-content">
+            <van-row>
+                <van-col span="24">
+                    <span class="swiper-title" style="span:24">
+                        我的净资产 (元)
+                    </span>
+                </van-col>
+            </van-row>
+            <van-row>
+                <van-col span="24">
+                    <span class="swiper-amount">
+                        ￥6800.00
+                    </span>
+                </van-col>
+            </van-row>
+            <van-icon name="password-view" class="amount-view"></van-icon>
+            <van-row>
+                <van-col span="10">
+                    <span class="swiper-title">
+                        总资产 <a class="total-asset">￥233.33 </a>
+                    </span>
+                </van-col>
+                <van-col span="8" offset="1">
+                    <span class="swiper-title">
+                        总负债 <a class="total-dept">￥0.00</a>
+                    </span>
+                </van-col>
+                
+            </van-row>
+
+        </view>
+    </swiper-item>
+</swiper>  
+
+<van-row class="center-button">
+    <van-col span="17" offset="1">
+        <button class="btn-addBill" >
+            <van-icon name="edit"></van-icon>
+                记一笔
+        </button>
+    </van-col>
+    <van-col span="5">
+        <button class="btn-addAsset" >
+            <span>
+                添加资产
+            </span>
+        </button>
+    </van-col>  
+</van-row>
+
+<view class="asset-accounts">
+    <span>
+        资产账户    
+    </span>
+    <view class="account-card">
+        <i class="iconfont icon-zhongguoyinhang"></i>
+        <view class="account-card-info">
+            <span class="account-card-name">
+            中国银行
+            </span>
+            <span class="account-card-id">
+                借记卡****
+            </span>
+        </view>
+        <view class="amount-sync">
+            <a href="#">同步</a>
+        </view>
+    </view>
+    <view class="account-card">
+        <i class="iconfont icon-pufayinhang"></i>
+        <view class="account-card-info">
+            <span class="account-card-name">
+                浦发银行
+            </span >
+            <span class="account-card-id">
+                借记卡****
+            </span>
+            
+        </view>
+        <view class="amount-sync">
+            <a href="#">同步</a>
+        </view>
+    </view>
+    <view class="account-card"></view>
+    <view class="account-card"></view>
+    <view class="account-card"></view>
+</view>

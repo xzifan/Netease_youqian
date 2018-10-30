@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/myPage/myPage",
+    "pages/bill/bill",
+    "pages/satistics/satistics"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "云开发 QuickStart",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home_selected.png"
+      },
+      {
+        "pagePath": "pages/bill/bill",
+        "text": "账单",
+        "iconPath": "images/bill.png",
+        "selectedIconPath": "images/bill_selected.png"
+      },
+      {
+        "pagePath": "pages/satistics/satistics",
+        "text": "报表",
+        "iconPath": "images/satistics.png",
+        "selectedIconPath": "images/satistics_selected.png"
+      },
+      {
+        "pagePath": "pages/myPage/myPage",
+        "text": "我",
+        "iconPath": "images/person.png",
+        "selectedIconPath": "images/person_selected.png"
+      }
+    ]
+  }
+}

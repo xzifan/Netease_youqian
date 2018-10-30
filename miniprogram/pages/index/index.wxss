@@ -1,0 +1,111 @@
+
+/* miniprogram/pages/index/index.wxss */
+.swiper{
+    height: 350rpx;
+    background-color: #019fff;
+    position: relative;
+}
+van-row{
+    line-height: 100rpx;
+}
+.swiper-title{
+    padding-top: 40rpx;
+    padding-left: 40rpx;
+    color: #b3e0ff;
+    font-size: 15px;
+    
+}
+.swiper-amount{
+    padding-left: 40rpx;
+    color: #fff;
+    font-size: 35px;
+}
+.amount-view{
+    position:absolute;
+    right: 40rpx;
+    top: 36%;
+}
+.mon-income,.total-asset,.total-dept{
+    color: #fff;
+    font-size: 15px;
+}
+
+/* button add */
+
+.btn-addBill,.btn-addAsset{
+    margin-top: 30rpx;
+    height: 80rpx;
+    border-radius: 5rpx;
+    font-size: 20rpx;
+    color: #fff;
+    background-color: #019cff;
+    display: inline-block;
+    justify-content: center;
+    align-content: center;
+}
+.btn-addBill{
+    font-size: 30rpx;
+    margin-left: 20rpx;
+    width: 100%;
+    border-right: 5rpx solid #34acff;
+    box-shadow:0px 2px 0px 2px #d2edff85;
+}
+.btn-addAsset{
+    width: 100%;
+    font-size: 25rpx;
+    box-shadow:1px 2px 0px 2px #d2edff85;
+}
+
+/* acount-cards */
+.asset-accounts{
+    margin-left: 10rpx;
+}
+.asset-accounts>span{
+    font-size: 18px;
+    font-weight: 500;
+}
+.account-card{
+    position: relative;
+    display: flex;
+    margin: 1rpx,15rpx;
+    height: 180rpx;
+    box-shadow:1px 2px 0px 2px #fafafa;
+}
+
+.account-card>i{
+    position: absolute;
+    left: 45rpx;
+    top: 45%;
+    transform: scale(2.5)
+}
+.account-card>.account-card-info{
+    display: flex;
+    flex-direction: column;
+    margin-left: 18%;
+    padding-top: 50rpx;
+    width: 65%;
+}
+.account-card>.account-card-info>.account-card-name{
+    font-size: 18px;
+    font-weight: bolder;
+    line-height: 50rpx;
+}
+.account-card>.account-card-info>.account-card-id{
+    font-size: 15px;
+    font-weight: normal;
+    color: #8c8f98;
+}
+.account-card>.amount-sync{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10%;
+}
+.account-card>.amount-sync>a{
+    font-size: 14px;
+    background-color: #ecf1f6;
+    color: #1976d2;
+    display: inline-block;
+    text-align: center;
+    width: 80rpx;
+    height: 35rpx;
+}
