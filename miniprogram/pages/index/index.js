@@ -5,6 +5,49 @@ Page({
    * 页面的初始数据
    */
   data: {
+    accounts:[{
+        bankName:"中国银行",
+        type:"借记卡",
+        end:"****",
+        amount:100.00
+      },{
+        bankName:"中国农业银行",
+        type:"借记卡",
+        end:"****"
+      },{
+        bankName:"浦发银行",
+        type:"借记卡",
+        end:"****"
+      },{
+        bankName:"浦发银行",
+        type:"借记卡",
+        end:"****"
+      },{
+        bankName:"浦发银行",
+        type:"借记卡",
+        end:"****"
+      },{
+        bankName:"浦发银行",
+        type:"借记卡",
+        end:"****"
+      }],
+    recentBills:{
+      today:[{
+         title:"其他",
+         desc:"转账 ",
+         amount:100,
+      },{
+        title:"购物",
+        desc:"商品 可乐",
+        amount:3
+      }],
+      dayB1:[{
+
+      }],
+      dayB2:[{
+
+      }]
+    }
 
   },
 

@@ -1,7 +1,7 @@
 
 /* miniprogram/pages/index/index.wxss */
 .swiper{
-    height: 350rpx;
+    height: 320rpx;
     background-color: #019fff;
     position: relative;
 }
@@ -12,13 +12,13 @@ van-row{
     padding-top: 40rpx;
     padding-left: 40rpx;
     color: #b3e0ff;
-    font-size: 15px;
+    font-size: 14px;
     
 }
 .swiper-amount{
     padding-left: 40rpx;
     color: #fff;
-    font-size: 35px;
+    font-size: 32px;
 }
 .amount-view{
     position:absolute;
@@ -28,7 +28,7 @@ van-row{
 }
 .mon-income,.total-asset,.total-dept{
     color: #fff;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 /* button add */
@@ -48,14 +48,14 @@ van-row{
     
 }
 .btn-addBill{
-    font-size: 30rpx;
+    font-size: 18px;
     width: 100%;
     border-right: 5rpx solid #34acff;
     box-shadow:0px 1px 0px 1px #d2edff85;
 }
 .btn-addAsset{
     width: 100%;
-    font-size: 25rpx;
+    font-size: 13px;
     box-shadow:1px 1px 0px 1px #d2edff85;
 }
 
@@ -67,47 +67,51 @@ van-row{
     margin-bottom:50rpx;
 }
 .detail-title{
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 600;
 }
-.account-card{
+.card{
     position: relative;
     display: flex;
+    flex-direction: row;
     margin-bottom: 5rpx;
     height: 180rpx;
     box-shadow:5px 5px 20px 1px #e6e6e67e;
 }
 
-.account-card>i{
+.card>i{
     position: absolute;
     left: 25rpx;
     top: 45%;
     transform: scale(2.5)
 }
-.account-card>.account-card-info{
+.card>.account-card-info{
     display: flex;
     flex-direction: column;
     margin-left: 18%;
     padding-top: 50rpx;
     width: 65%;
 }
-.account-card>.account-card-info>.account-card-name{
-    font-size: 18px;
+.card>.account-card-info>.account-card-name{
+    font-size: 16px;
     font-weight: 600;
     line-height: 50rpx;
 }
-.account-card>.account-card-info>.account-card-id{
-    font-size: 15px;
+.font-desc{
+    font-size: 13px;
     font-weight: normal;
     color: #8c8f98;
 }
-.account-card>.amount-sync{
+.amount-sync{
+    position: relative;
     display: flex;
-    flex-direction: row;
+    font-size: 18px;
     margin-top: 10%;
+    flex-direction: column;
+    vertical-align: middle;
 }
-.account-card>.amount-sync>a{
-    font-size: 14px;
+.amount-sync>a{
+    font-size: 12px;
     background-color: #ecf1f6;
     color: #1976d2;
     display: inline-block;
@@ -125,4 +129,11 @@ van-row{
 }
 .recentBills>.detail-title>a{
     color: #8c8f98;
+}
+
+.oneDayBill{
+    margin-bottom: 20rpx;
+}
+.oneDayBill>.date{
+
 }

@@ -49,7 +49,7 @@
                     </span>
                 </van-col>
             </van-row>
-            <van-icon name="password-view" class="amount-view"></van-icon>
+            <i class="iconfont icon-yanjing amount-view"></i>
             <van-row>
                 <van-col span="10">
                     <span class="swiper-title">
@@ -87,48 +87,46 @@
 </view>
 
 <view class="asset-accounts">
+    
     <span class="detail-title">
         资产账户    
     </span>
-    <view class="account-card">
-        <i class="iconfont icon-zhongguoyinhang"></i>
-        <view class="account-card-info">
-            <span class="account-card-name">
-            中国银行
-            </span>
-            <span class="account-card-id">
-                借记卡****
-            </span>
-        </view>
-        <view class="amount-sync">
-            <a href="#">同步</a>
-        </view>
+    <view >
+        <block wx:for="{{accounts}}" wx:for-item="account">       
+            <view class="card">
+                <i class="iconfont icon-pufayinhang"></i>
+                <view class="account-card-info">
+                    <span class="account-card-name">
+                        {{account.bankName}}
+                    </span >
+                    <span class="font-desc">
+                        {{account.type}}{{account.end}}
+                    </span>
+                </view>
+                <view class="amount-sync">
+                    <span class="account-amount" wx:if="{{account.amount}}">￥{{account.amount}}</span>
+                    <a href="#">同步</a>
+                </view>
+            </view>
+        </block>
     </view>
-    <view class="account-card">
-        <i class="iconfont icon-pufayinhang"></i>
-        <view class="account-card-info">
-            <span class="account-card-name">
-                浦发银行
-            </span >
-            <span class="account-card-id">
-                借记卡****
-            </span>
-            
-        </view>
-        <view class="amount-sync">
-            <a href="#">同步</a>
-        </view>
-    </view>
-    <view class="account-card"></view>
-    <view class="account-card"></view>
-    <view class="account-card"></view>
 </view>
 
 <view class="recentBills">
     <span class="detail-title">
-        近三日新增账单 <a>{{}}笔</a>
+        近三日新增账单 <a>{{recentBills.today.length+recentBills.dayB1.length+recentBills.dayB2.length}}笔</a>
     </span>
-    <view class="oneDayBill">
-        
-    </view>
+    <block wx:for="{{recentBills}}" wx:for-item="daily">
+        <view class="oneDayBill">
+            <span class="font-desc">
+                今天
+            </span>
+            <view class="card"></view>
+            <view class="card"></view>
+            <view class="card"></view>
+            <view class="card"></view>
+            <view class="card"></view>
+        </view>
+    </block>
+    
 </view>
