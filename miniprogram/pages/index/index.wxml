@@ -15,7 +15,7 @@
                     </span>
                 </van-col>
             </van-row>
-            <van-icon name="password-view" class="amount-view"></van-icon>
+            <i class="iconfont icon-yanjing amount-view"></i>
             <van-row>
                 <van-col span="10">
                     <span class="swiper-title">
@@ -25,7 +25,7 @@
                 <van-col span="8" offset="1">
                     <span class="swiper-title">
                         设置预算
-                        <van-icon name="edit"></van-icon>
+                        <i class="iconfont icon-shezhi"></i>
                     </span>
                 </van-col>
                 
@@ -68,24 +68,26 @@
     </swiper-item>
 </swiper>  
 
-<van-row class="center-button">
-    <van-col span="17" offset="1">
-        <button class="btn-addBill" >
-            <van-icon name="edit"></van-icon>
-                记一笔
-        </button>
-    </van-col>
-    <van-col span="5">
-        <button class="btn-addAsset" >
-            <span>
-                添加资产
-            </span>
-        </button>
-    </van-col>  
-</van-row>
+<view  class="center-button">
+    <van-row>
+        <van-col span="18" >
+            <button class="btn-addBill" >
+                <van-icon name="edit"></van-icon>
+                    记一笔
+            </button>
+        </van-col>
+        <van-col span="6">
+            <button class="btn-addAsset" >
+                <span>
+                    添加资产
+                </span>
+            </button>
+        </van-col>  
+    </van-row>
+</view>
 
 <view class="asset-accounts">
-    <span>
+    <span class="detail-title">
         资产账户    
     </span>
     <view class="account-card">
@@ -120,4 +122,13 @@
     <view class="account-card"></view>
     <view class="account-card"></view>
     <view class="account-card"></view>
+</view>
+
+<view class="recentBills">
+    <span class="detail-title">
+        近三日新增账单 <a>{{}}笔</a>
+    </span>
+    <view class="oneDayBill">
+        
+    </view>
 </view>

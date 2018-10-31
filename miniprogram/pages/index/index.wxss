@@ -23,7 +23,8 @@ van-row{
 .amount-view{
     position:absolute;
     right: 40rpx;
-    top: 36%;
+    top: 38%;
+    transform: scale(1.2);
 }
 .mon-income,.total-asset,.total-dept{
     color: #fff;
@@ -31,7 +32,10 @@ van-row{
 }
 
 /* button add */
-
+.center-button{
+    width: 92%;
+    margin-left: 4%;
+}
 .btn-addBill,.btn-addAsset{
     margin-top: 30rpx;
     height: 80rpx;
@@ -40,41 +44,43 @@ van-row{
     color: #fff;
     background-color: #019cff;
     display: inline-block;
-    justify-content: center;
-    align-content: center;
+    justify-content: first baseline;
+    
 }
 .btn-addBill{
     font-size: 30rpx;
-    margin-left: 20rpx;
     width: 100%;
     border-right: 5rpx solid #34acff;
-    box-shadow:0px 2px 0px 2px #d2edff85;
+    box-shadow:0px 1px 0px 1px #d2edff85;
 }
 .btn-addAsset{
     width: 100%;
     font-size: 25rpx;
-    box-shadow:1px 2px 0px 2px #d2edff85;
+    box-shadow:1px 1px 0px 1px #d2edff85;
 }
 
 /* acount-cards */
 .asset-accounts{
-    margin-left: 10rpx;
+    width: 92%;
+    margin-left: 4%;
+    margin-top: 20rpx;
+    margin-bottom:50rpx;
 }
-.asset-accounts>span{
-    font-size: 18px;
-    font-weight: 500;
+.detail-title{
+    font-size: 16px;
+    font-weight: 600;
 }
 .account-card{
     position: relative;
     display: flex;
-    margin: 1rpx,15rpx;
+    margin-bottom: 5rpx;
     height: 180rpx;
-    box-shadow:1px 2px 0px 2px #fafafa;
+    box-shadow:5px 5px 20px 1px #e6e6e67e;
 }
 
 .account-card>i{
     position: absolute;
-    left: 45rpx;
+    left: 25rpx;
     top: 45%;
     transform: scale(2.5)
 }
@@ -87,7 +93,7 @@ van-row{
 }
 .account-card>.account-card-info>.account-card-name{
     font-size: 18px;
-    font-weight: bolder;
+    font-weight: 600;
     line-height: 50rpx;
 }
 .account-card>.account-card-info>.account-card-id{
@@ -108,4 +114,15 @@ van-row{
     text-align: center;
     width: 80rpx;
     height: 35rpx;
+    border-radius: 5rpx;
+}
+
+/* 3day bills */
+
+.recentBills{
+    width: 92%;
+    margin-left: 4%;
+}
+.recentBills>.detail-title>a{
+    color: #8c8f98;
 }
