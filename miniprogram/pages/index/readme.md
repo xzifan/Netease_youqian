@@ -1,0 +1,1 @@
+- navigateto & naviagteBack 后返回不再触发onload，而会再次触发onshow

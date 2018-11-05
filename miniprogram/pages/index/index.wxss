@@ -1,12 +1,12 @@
 
 /* miniprogram/pages/index/index.wxss */
 .swiper{
-    height: 320rpx;
+    height: 300rpx;
     background-color: #019fff;
     position: relative;
 }
-van-row{
-    line-height: 100rpx;
+.swiper-content>van-row{
+    line-height: 80rpx;
 }
 .swiper-title{
     padding-top: 40rpx;
@@ -62,7 +62,7 @@ van-row{
 /* acount-cards */
 .asset-accounts{
     width: 92%;
-    margin-left: 4%;
+    margin: 0 4%;
     margin-top: 20rpx;
     margin-bottom:50rpx;
 }
@@ -71,46 +71,52 @@ van-row{
     font-weight: 600;
 }
 .card{
+    width: 100%;
     position: relative;
     display: flex;
-    flex-direction: row;
-    margin-bottom: 5rpx;
+
+    align-items: center;
+    overflow: hidden;
+}
+.card.accounts{
     height: 180rpx;
-    box-shadow:5px 5px 20px 1px #e6e6e67e;
+    box-shadow:5px 8px 10px 1px #e6e6e67e;
+}
+.card.bills{
+    height: 130rpx;
+    border-bottom:  3rpx rgba(151, 151, 151, 0.048) solid;
+}
+.card>icon{
+    margin: 0 3%;
 }
 
-.card>i{
-    position: absolute;
-    left: 25rpx;
-    top: 45%;
-    transform: scale(2.5)
+.card>.card-col-left{
+    height: 100%;
+    width: 70%;
+    align-content: center;
 }
-.card>.account-card-info{
+.card>.card-col-right{
+    height: 100%;
+    width: 20%;
+    align-content: center;
+}
+.card>.card-col-right,.card>.card-col-left{
     display: flex;
-    flex-direction: column;
-    margin-left: 18%;
-    padding-top: 50rpx;
-    width: 65%;
-}
-.card>.account-card-info>.account-card-name{
+    align-items: flex-start;
+    justify-content: center;
     font-size: 16px;
-    font-weight: 600;
-    line-height: 50rpx;
+    font-weight: 580;
+    flex-direction: column;
 }
+
 .font-desc{
-    font-size: 13px;
+    font-size: 12px;
+    line-height: 1;
     font-weight: normal;
     color: #8c8f98;
 }
-.amount-sync{
-    position: relative;
-    display: flex;
-    font-size: 18px;
-    margin-top: 10%;
-    flex-direction: column;
-    vertical-align: middle;
-}
-.amount-sync>a{
+
+.btn-sync{
     font-size: 12px;
     background-color: #ecf1f6;
     color: #1976d2;
@@ -124,8 +130,7 @@ van-row{
 /* 3day bills */
 
 .recentBills{
-    width: 92%;
-    margin-left: 4%;
+    width: 100%;
 }
 .recentBills>.detail-title>a{
     color: #8c8f98;
@@ -133,7 +138,4 @@ van-row{
 
 .oneDayBill{
     margin-bottom: 20rpx;
-}
-.oneDayBill>.date{
-
 }

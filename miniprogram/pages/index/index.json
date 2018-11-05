@@ -3,6 +3,7 @@
         "van-icon":"../../vant-weapp/icon/index",
         "van-row": "../../vant-weapp/row/index",
         "van-col": "../../vant-weapp/col/index",
-        "van-button": "../../vant-weapp/button/index"
+        "van-button": "../../vant-weapp/button/index",
+        "icon":"../../components/iconfont/iconfont"
     }
 }

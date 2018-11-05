@@ -15,7 +15,7 @@
                     </span>
                 </van-col>
             </van-row>
-            <i class="iconfont icon-yanjing amount-view"></i>
+            <icon type="yanjing" class="amount-view" size="15" color="#eee"/>
             <van-row>
                 <van-col span="10">
                     <span class="swiper-title">
@@ -25,12 +25,10 @@
                 <van-col span="8" offset="1">
                     <span class="swiper-title">
                         设置预算
-                        <i class="iconfont icon-shezhi"></i>
+                        <icon type="shezhi" size="15" color="#eee"/>
                     </span>
-                </van-col>
-                
+                </van-col>              
             </van-row>
-
         </view>
     </swiper-item> 
     <swiper-item class="swiper-asset">
@@ -71,7 +69,7 @@
 <view  class="center-button">
     <van-row>
         <van-col span="18" >
-            <button class="btn-addBill" >
+            <button class="btn-addBill" bind:tap="goToAddBill" >
                 <van-icon name="edit"></van-icon>
                     记一笔
             </button>
@@ -86,46 +84,51 @@
     </van-row>
 </view>
 
-<view class="asset-accounts">
-    
+<view class="asset-accounts">    
     <span class="detail-title">
         资产账户    
     </span>
     <view >
-        <block wx:for="{{accounts}}" wx:for-item="account">       
-            <view class="card">
-                <i class="iconfont icon-pufayinhang"></i>
-                <view class="account-card-info">
-                    <span class="account-card-name">
-                        {{account.bankName}}
-                    </span >
-                    <span class="font-desc">
-                        {{account.type}}{{account.end}}
-                    </span>
-                </view>
-                <view class="amount-sync">
-                    <span class="account-amount" wx:if="{{account.amount}}">￥{{account.amount}}</span>
-                    <a href="#">同步</a>
-                </view>
+        <block wx:for="{{accounts}}" wx:for-item="account" wx:key="account.end">       
+            <view class="card accounts">
+                <icon type="pufayinhang" size="40" />
+                <van-col class="card-col-left">                       
+                    {{account.bankName}}
+                    <text class="font-desc">\n{{account.type}} {{account.end}}</text>                  
+                </van-col>
+                <van-col class="card-col-right">
+                    <text wx:if="{{account.amount}}">￥{{account.amount}}\n</text>
+                    <a href="#" class="btn-sync">同步</a>
+                </van-col> 
             </view>
         </block>
     </view>
 </view>
 
 <view class="recentBills">
-    <span class="detail-title">
-        近三日新增账单 <a>{{recentBills.today.length+recentBills.dayB1.length+recentBills.dayB2.length}}笔</a>
+    <span class="detail-title" style="margin-left:5%">
+        近三日新增账单 <a>{{numOfBills}}笔</a>
     </span>
-    <block wx:for="{{recentBills}}" wx:for-item="daily">
-        <view class="oneDayBill">
-            <span class="font-desc">
+    <block wx:for="{{recentBills}}" wx:for-item="daily" wx:for-index="index" >
+        <view class="oneDayBill" wx:if="{{daily}}">
+            <span class="font-desc" style="margin-left:5%">
                 今天
             </span>
-            <view class="card"></view>
-            <view class="card"></view>
-            <view class="card"></view>
-            <view class="card"></view>
-            <view class="card"></view>
+            <block wx:for="{{recentBills[index]}}" wx:for-item="bill" wx:key="daily.time">
+                <view class="card bills">
+                    
+                    <icon type="zhifupingtai-weixin" color="green"/>
+                    <van-col class="card-col-left">                       
+                            {{bill.title}} 
+                            <text class="font-desc">\n{{bill.desc}}</text>                  
+                    </van-col>
+                    <van-col class="card-col-right">
+                            ￥{{bill.total}}
+                        <text class="font-desc">\n{{bill.platform}}
+                        </text>
+                    </van-col>                 
+                </view>
+            </block>
         </view>
     </block>
     
