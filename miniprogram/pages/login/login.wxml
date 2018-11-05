@@ -1,0 +1,3 @@
+<view class='container'>
+  <button type="primary" open-type="getUserInfo" bindgetuserinfo='getUserInfo'>点击登陆</button>
+</view>
