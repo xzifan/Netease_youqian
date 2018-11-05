@@ -1,0 +1,25 @@
+/* miniprogram/pages/login/addBill/addBill.wxss */
+.topNav{
+    width: 100%;
+    padding:  20rpx 0;
+    border-bottom: 1rpx solid rgba(117, 117, 117, 0.1);
+    position: relative;
+}
+
+.input-amount{
+    width: 100%;
+    text-align: left;
+    line-height: 40px;
+    font-weight: 500;
+    font-size: 18px;
+    display: flex;
+    margin-top: 20rpx;
+}
+.input-amount > input{
+    width: 80%;
+    height: 100%;
+    display: inline-block;
+    text-align: right;
+    color: #ff595f;
+    font-size: 25px;
+}

@@ -1,0 +1,20 @@
+<view class="topNav">
+    <van-tabs active="{{ active }}" bind:change="onChange" type="card">
+        <van-tab title="流出">
+
+            <van-panel>
+                <view class="input-amount">
+                    <span>账单金额</span>
+                    <input type="text" type="digit"
+                    placeholder="￥0.00" placeholder-style="color: #ff595f;font-size: 25px;"
+                    bindinput="bindReplaceInput"
+                    focus
+                    />
+                </view>
+            </van-panel>
+
+        </van-tab>
+        <van-tab title="流入"></van-tab>
+        <van-tab title="内部转账"></van-tab>
+    </van-tabs>
+</view>
