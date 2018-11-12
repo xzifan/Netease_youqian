@@ -76,9 +76,7 @@
         </van-col>
         <van-col span="6">
             <button class="btn-addAsset" >
-                <span>
                     添加资产
-                </span>
             </button>
         </van-col>  
     </van-row>
@@ -91,15 +89,21 @@
     <view >
         <block wx:for="{{accounts}}" wx:for-item="account" wx:key="account.end">       
             <view class="card accounts">
-                <icon type="pufayinhang" size="40" />
-                <van-col class="card-col-left">                       
-                    {{account.bankName}}
-                    <text class="font-desc">\n{{account.type}} {{account.end}}</text>                  
-                </van-col>
-                <van-col class="card-col-right">
-                    <text wx:if="{{account.amount}}">￥{{account.amount}}\n</text>
-                    <a href="#" class="btn-sync">同步</a>
-                </van-col> 
+                <icon type="{{account.icon}}yinhang" size="40" />
+                <van-row style="width:100%">
+                    <van-col span="16">                       
+                        <van-row>{{account.bankName}}</van-row>                                
+                    </van-col>
+                    
+                    <van-col span="8">
+                        <text wx:if="{{account.amount}}" style="text-align:right">￥{{account.amount}}</text>          
+                    </van-col> 
+                    <van-col span="16">
+                        <text class="font-desc">{{account.type}} {{account.end}}</text>
+                    </van-col>
+                    <!-- <van-col span="5" offset="3"><a href="#" class="btn-sync">同步</a></van-col> -->
+                </van-row>
+                
             </view>
         </block>
     </view>
@@ -107,29 +111,18 @@
 
 <view class="recentBills">
     <span class="detail-title" style="margin-left:5%">
-        近三日新增账单 <a>{{numOfBills}}笔</a>
+        近日新增账单 <a>{{numOfBills}}笔</a>
     </span>
-    <block wx:for="{{recentBills}}" wx:for-item="daily" wx:for-index="index" >
-        <view class="oneDayBill" wx:if="{{daily}}">
-            <span class="font-desc" style="margin-left:5%">
-                今天
-            </span>
-            <block wx:for="{{recentBills[index]}}" wx:for-item="bill" wx:key="daily.time">
-                <view class="card bills">
-                    
-                    <icon type="zhifupingtai-weixin" color="green"/>
-                    <van-col class="card-col-left">                       
-                            {{bill.title}} 
-                            <text class="font-desc">\n{{bill.desc}}</text>                  
-                    </van-col>
-                    <van-col class="card-col-right">
-                            ￥{{bill.total}}
-                        <text class="font-desc">\n{{bill.platform}}
-                        </text>
-                    </van-col>                 
-                </view>
-            </block>
-        </view>
+    <block wx:for="{{recentBills}}" wx:for-item="bill" wx:for-index="index" >           
+        <view class="card bills">       
+            <icon type="{{bill.icon}}zhifu"/>
+            <van-row style="width:100%">               
+                <van-col span="15">{{bill.title}} </van-col>
+                <van-col span="5" offset="2" style="text-align:right">￥{{bill.total}}</van-col>
+                <van-col span="15"><text class="font-desc">{{bill.desc}}</text> </van-col>    
+                <van-col span="6" offset="3"><text class="font-desc">{{bill.platform}}</text></van-col>
+            </van-row>                
+        </view>   
     </block>
     
 </view>

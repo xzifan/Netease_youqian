@@ -1,4 +1,5 @@
 {
+    "enablePullDownRefresh":false,
     "usingComponents":{
         "van-icon":"../../vant-weapp/icon/index",
         "van-row": "../../vant-weapp/row/index",

@@ -37,10 +37,10 @@ Page({
       total:3.00,
       platform:"支付宝"}],
       ,
-      [{time:"20181031_081800",
-        title:"餐饮",
-        desc:"大碗燃面",
-        total:10.00
+      [{"time":"20181031_081800",
+        "title":"餐饮",
+        "desc":"大碗燃面",
+        "total":10.00
       }]
     ],
     
@@ -53,31 +53,41 @@ Page({
    */
   onLoad: function (options) {
     let that = this
-    wx.getSetting({
-      success (res) {
-        if (res.authSetting['scope.userInfo']){
-          console.log("已获取信息授权",res)
-          wx.getUserInfo({
-            success: function(res) {
-              var userInfo = res.userInfo
-              that.setData({
-                userInfo:userInfo
-              })
-            }
-          })
-
-        }else wx.navigateTo({
-          url: '../login/login',
-          success: function() {
-            console.log("跳转成功")
-          },
-          fail: function() {
-            console.log("跳转失败")
+    if (wx.getStorageSync('user')) {
+      wx.login({
+        success: function (res) {
+          if (res.code) {
+            console.log(res.code)
+            wx.getUserInfo({
+              success: function (res) {
+                console.log(res)
+                var objz = res.userInfo;
+                app.globalData.userInfo = res.userInfo;
+                wx.setStorageSync('userInfo', objz);//存储userInfo
+              }
+            })
           }
-        })
+        }
+      })
+
+      console.log("已获取id")
+      this.setData({
+        userInfo:wx.getStorageSync('userInfo'),
+        openid:wx.getStorageSync('user')
+      })
+    }else wx.navigateTo({
+      url: '../login/login',
+      success: function() {
+        console.log("跳转成功")
+      },
+      fail: function() {
+        console.log("跳转失败")
       }
     })
     
+    // let bills = app.globalData[11561180].map((item,index)=>{
+    //     if (item[time].slice(0,8))
+    // })
     let numOfBills =0;
     this.data.recentBills.forEach(element => {
       if (element) {
@@ -101,11 +111,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    if (app.globalData.userInfo) {
-        this.setData({
-        userInfo:app.globalData.userInfo
-        })
-    }   
+    let dataID = wx.getStorageSync('data')
+    console.log("data:",dataID.data.id)
+    this.setData({
+      accounts:dataID.data.id.accounts,
+      recentBills:dataID.data.id.bills
+    })
+  },
+  onReachBottom: function(){
+    console.log("bottom")
   },
   goToAddBill:function(){
     wx.navigateTo({
