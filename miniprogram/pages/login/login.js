@@ -19,10 +19,9 @@ Page({
               console.log(res.code)
                 wx.getUserInfo({
                     success: function (res) {
-                        var objz={};
-                        objz.avatarUrl=res.userInfo.avatarUrl;
-                        objz.nickName=res.userInfo.nickName;
-                        //console.log(objz);
+                        console.log(res)
+                        var objz=res.userInfo;
+                        app.globalData.userInfo = res.userInfo;
                         wx.setStorageSync('userInfo', objz);//存储userInfo
                     }
                 });
@@ -35,11 +34,8 @@ Page({
                     method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
                     // header: {}, // 设置请求的 header  
                     success: function(res){ 
-                      console.log()
-                        var obj={};
-                        obj.openid=res.data.openid;  
-                        obj.expires_in=Date.now()+res.data.expires_in;  
-                        //console.log(obj);
+                      console.log(res)
+                        var obj=res.data.openid;  
                         wx.setStorageSync('user', obj);//存储openid  
                         wx.navigateBack({
                           delta:2
