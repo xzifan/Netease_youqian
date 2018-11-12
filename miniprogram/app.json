@@ -3,10 +3,12 @@
     "pages/index/index",
     "pages/myPage/myPage",
     "pages/bill/bill",
-    "pages/satistics/satistics"
+    "pages/satistics/satistics","pages/index/addBill/addBill",
+    "pages/login/login"
+    
   ],
   "window": {
-    "backgroundColor": "#F6F6F6",
+    "backgroundColor": "#019fff",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#019fff",
     "navigationBarTitleText": "YouQian",
