@@ -1,18 +1,41 @@
+
 <view class="topNav">
     <van-tabs active="{{ active }}" bind:change="onChange" type="card">
         <van-tab title="流出">
-
-            <van-panel>
                 <view class="input-amount">
-                    <span>账单金额</span>
-                    <input type="text" type="digit"
-                    placeholder="￥0.00" placeholder-style="color: #ff595f;font-size: 25px;"
-                    bindinput="bindReplaceInput"
-                    focus
-                    />
+                    <span>账单金额：</span>                  
+                        <input type="digit"
+                        placeholder="￥0.00" placeholder-style="color: #ff595f;font-size: 25px;"
+                        bindinput="bindReplaceInput" bindblur="bindSetAmount"
+                        focus
+                        />             
                 </view>
-            </van-panel>
+                <view class="input-title" >
+                    <span>标题：</span>
+                    <input type="text" bindblur="bindSetTitle"/>
+                </view>
+                <view class="input-desc" >
+                    <span>描述：</span>
+                    <input type="text" bindblur="bindSetDesc"/>
+                </view>
+                <view class="pickers">
+                    <picker class="pick-date" mode="date" value="{{date}}" start="2015-09-01" end="2020-09-01" bindchange="bindDateChange">
+                        <view class="picker">
+                        日期 {{date}}
+                        </view>
+                    </picker>
+                    <picker class="pick-time" mode="time" value="{{time}}"  bindchange="bindTimeChange">
+                        <view class="picker">
+                        时间 {{time}}
+                        </view>
+                    </picker>
+                </view>
+                
 
+                <view class="buttons">
+                    <button class="addMore" bindtap="buttons_addMore">再加一笔</button>
+                    <button class="addOne" type="warn" bindtap="buttons_saveBill">保存</button>
+                </view>
         </van-tab>
         <van-tab title="流入"></van-tab>
         <van-tab title="内部转账"></van-tab>
