@@ -1,2 +1,4 @@
-<!--miniprogram/pages/myPage/myPage.wxml-->
-<text>miniprogram/pages/myPage/myPage.wxml</text>
+<view class="avatarBox">
+    <image class="avatar" src="{{userInfo.avatarUrl}}">  </image>
+    <view class="nickname">{{userInfo.nickName}}</view>
+</view>

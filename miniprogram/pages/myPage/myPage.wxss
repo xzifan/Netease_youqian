@@ -1,1 +1,14 @@
 /* miniprogram/pages/myPage/myPage.wxss */
+.avatarBox{
+    padding: 100rpx 275rpx 20rpx;
+    text-align: center;
+    background-color: #019fff;
+  }
+  .avatar{
+    width: 200rpx;
+    height: 200rpx;
+    border-radius: 200rpx;
+  }
+  .avatarBox>.nickname {
+    color: #eee;
+  }
