@@ -3,12 +3,15 @@
     <van-tabs active="{{ active }}" bind:change="onChange" type="card">
         <van-tab title="流出">
                 <view class="input-amount">
-                    <span>账单金额：</span>                  
-                        <input type="digit"
-                        placeholder="￥0.00" placeholder-style="color: #ff595f;font-size: 25px;"
-                        bindinput="bindReplaceInput" bindblur="bindSetAmount"
-                        focus
-                        />             
+                    <view class="input-amount_account">
+                        <icon type="{{data.id.accounts[0].icon}}" size="20"/>
+                    </view>
+                                     
+                    <input type="digit"
+                    placeholder="￥0.00" placeholder-style="color: #ff595f;font-size: 25px;text-align:right;"
+                    bindinput="bindReplaceInput" bindblur="bindSetAmount"
+                    focus style="text-align:right;" cursor='3'
+                    />             
                 </view>
                 <view class="input-title" >
                     <span>标题：</span>

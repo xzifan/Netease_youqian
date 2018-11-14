@@ -6,5 +6,7 @@
         "van-tabs": "../../../vant-weapp/tabs/index",
         "van-panel": "../../../vant-weapp/panel/index",
         "van-field": "../../../vant-weapp/field/index"
-    }
+    },
+    "disableScroll": true
+     
 }

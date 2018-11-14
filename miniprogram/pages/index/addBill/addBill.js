@@ -20,13 +20,12 @@ Page({
     this.setData({
       data:app.globalData.data
     })
+    console.log(this.data.data.id.accounts[0].icon)
   },
   bindReplaceInput:function(e){
     var value = e.detail.value;
-    console.log(value)
     if(value.charAt(0) != '￥')
       value='￥'+value
-    console.log(value.indexOf('.'))
     if (value.indexOf('.')!=-1){
       if (value.length>value.indexOf('.')+3) {
         value= value.slice(0,value.indexOf('.')+3)
@@ -36,12 +35,15 @@ Page({
   },
   bindSetAmount:function(e){
     let amount = e.detail.value;
-    if (e.detail.value=="￥")
+    console.log("get amount: " +amount)
+    if (e.detail.value=="￥"||e.detail.value=="")
       amount = "￥0.00"
     else if(amount.indexOf('.')==-1)
       amount += ".00"
-    else if(amount.indexOf('.')!=-1 && amount.length-amount.indexOf('.')<2)
-      
+    else if(amount.indexOf('.')!=-1 && amount.length-amount.indexOf('.')==1)
+      amount += "0"
+    else if(amount.indexOf('.')!=-1 && amount.length-amount.indexOf('.')==0)
+      amount+="00"
     this.setData({
       amount:amount
     })
@@ -77,7 +79,21 @@ Page({
     })
   },
   buttons_saveBill:function(){
-    console.log()
+    console.log(app.globalData.data.id.bills.length)
+    let idx = app.globalData.data.id.bills.length;
+    let bill = 'data.id.bills['+idx+']'
+    this.setData({
+      [bill+'.type']:1,
+      [bill+'.title']:this.data.title||null,
+      [bill+'.time']:this.data.date+this.data.time||null,
+      [bill+'.desc']:this.data.desc||null,
+      [bill+'.total']:this.data.amount||"0.00"
+      
+    })
+    Object.assign(app.globalData, this.data)
+    let data = wx.setStorageSync('data',this.data)
+    console.log(this.data)
+
     wx.navigateBack({
       delta:5
     })
