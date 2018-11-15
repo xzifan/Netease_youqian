@@ -15,7 +15,7 @@ App({
         console.log(res.data)
         Object.assign(this.globalData, res.data)//将原有值替换更新
         wx.setStorageSync("data", res.data)
-        console.log(this.globalData)
+        console.log("original data:",this.globalData)
       }
     })
   },
