@@ -6,7 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    modalHidden:true,
+    selectedAccount:0
   },
 
   /**
@@ -20,7 +21,6 @@ Page({
     this.setData({
       data:app.globalData.data
     })
-    console.log(this.data.data.id.accounts[0].icon)
   },
   bindReplaceInput:function(e){
     var value = e.detail.value;
@@ -31,6 +31,9 @@ Page({
         value= value.slice(0,value.indexOf('.')+3)
       }
     }
+    this.setData({
+      amount:value.slice(1)
+    })
     return value
   },
   bindSetAmount:function(e){
@@ -40,12 +43,13 @@ Page({
       amount = "￥0.00"
     else if(amount.indexOf('.')==-1)
       amount += ".00"
-    else if(amount.indexOf('.')!=-1 && amount.length-amount.indexOf('.')==1)
+    else if(amount.indexOf('.')!=-1 && (amount.length-amount.indexOf('.'))==1)
       amount += "0"
-    else if(amount.indexOf('.')!=-1 && amount.length-amount.indexOf('.')==0)
+    else if(amount.indexOf('.')!=-1 && (amount.length-amount.indexOf('.'))==0)
       amount+="00"
+    console.log(typeof amount,amount)
     this.setData({
-      amount:amount
+      amount:amount.slice(1)
     })
   },
   bindSetTitle:function(e) {
@@ -79,24 +83,47 @@ Page({
     })
   },
   buttons_saveBill:function(){
-    console.log(app.globalData.data.id.bills.length)
     let idx = app.globalData.data.id.bills.length;
     let bill = 'data.id.bills['+idx+']'
+    let accountIdx = this.data.selectedAccount-0
+    console.log(accountIdx)
+    let updateAccount = 'data.id.accounts['+accountIdx+']'
     this.setData({
       [bill+'.type']:1,
       [bill+'.title']:this.data.title||null,
       [bill+'.time']:this.data.date+this.data.time||null,
-      [bill+'.desc']:this.data.desc||null,
-      [bill+'.total']:this.data.amount||"0.00"
-      
+      [bill+'.desc']:this.data.desc||"",
+      [bill+'.total']:this.data.amount||"0.00",
+      [bill+'.account']:accountIdx,
+      [bill+'.icon']:accountIdx!=1&&accountIdx!=0 ? "bank" : (accountIdx==0 ? "zhifubaozhifu" : "weixinzhifu"),
+      [updateAccount+'.amount']:(app.globalData.data.id.accounts[accountIdx].amount-this.data.amount).toFixed(2)
+
     })
-    Object.assign(app.globalData, this.data)
-    let data = wx.setStorageSync('data',this.data)
+    Object.assign(app.globalData.data, this.data.data)
+    wx.setStorageSync('data',this.data)
     console.log(this.data)
 
     wx.navigateBack({
       delta:5
     })
+  },
+  showAccounts:function(){
+    this.setData({
+      modalHidden:false
+    })
+  },
+  hideAccounts:function(){
+    this.setData({
+      modalHidden:true
+    })
+  },
+  selectAccount:function(e){
+    let idx = e.currentTarget.dataset.account
+    console.log(idx)
+    this.setData({
+      selectedAccount:idx
+    })
+    this.hideAccounts();
   }
 
 })

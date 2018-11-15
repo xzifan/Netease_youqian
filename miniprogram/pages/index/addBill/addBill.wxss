@@ -1,38 +1,61 @@
-/* miniprogram/pages/login/addBill/addBill.wxss */
+
 .topNav{
     width: 100%;
     border-bottom: 1rpx solid rgba(117, 117, 117, 0.1);
     height: 1000rpx;
 }
-
-.input-amount,.input-title,.input-desc{  
+van-tab{
     display: flex;
+    flex-direction: column;
+    flex: 1;margin-top: 50rpx;
+}
+.van-tabs__wrap{
+
+}
+.van-tabs__scroll--card{
+    margin: 30rpx 5%;
+    width: 90%;
+
+}
+.input-amount,.input-title,.input-desc{ 
+    display: flex;
+    flex-direction: row; 
+    flex: 1;
     align-items: center;
     border-bottom: solid #83838321 1rpx
 }
 .input-amount{
-    margin-top: 20rpx;
-    height: 80rpx;
-    padding:20rpx 0;
-    border-top: 1rpx solid #83838330;
-    border-bottom: #83838330 solid 20rpx;
+    height: 120rpx;
+    
+    /* margin: 30rpx 0 ; */
+
+    /* border-top: 1rpx solid #83838330; */
+    border-top:20rpx #83838320 solid ;
+    border-bottom:20rpx #83838320 solid ;
     overflow: hidden;
+    width: 100%;
+    justify-content: space-around;
 }
 .input-amount>.input-amount_account{
+    display: inline-block;
     width: 30%;
-    padding-right: 5%;
+    height: 80%;
+    display: flex;
+    flex: 1;
+    align-items: center;
     border-right: 3rpx solid #83838340;
     height: 100%;
+    font-size: 15px;
 }
 .input-amount >  input{
     font-size: 25px;
-    width: 65%;
+    width: 60%;
     height: 100%;
     color: #ff595f;
 }
 .input-title{
     height: 60rpx;
-    padding: 35rpx 4%;
+    /* padding: 35rpx 4%; */
     font-size: 18px;
 }
 .input-title>input{
@@ -41,29 +64,54 @@
 .input-desc{
     height: 30rpx;
     font-size: 25rpx;
-    padding: 15rpx 4%;
     color: #414141;
 
 }
-
+.pickers{
+    display: flex;
+    flex: 1px;
+    justify-content: space-around;
+    align-items: center;
+}
 
 .pickers>picker{
     font-size: 25rpx;
-    width: 92%;
-    margin: 10rpx 4%;
-
+    width: 30%;
+    
 }
 .buttons{
     width: 100%;
     display: flex;
     justify-content: space-around;
-    align-self: flex-end;
-    padding-top: 40rpx;
+    align-items: center;
+    height: 200rpx
 }
 .buttons>button{
     display: inline-block;
     height: 75rpx;
     width: 300rpx;
     padding: 0 ;
-    margin: 0;
+
+}
+.show-account{
+    border-radius: 10px;
+    background-color:white;
+    height:600rpx;
+    position:fixed;
+    bottom:0;
+    width:96%;
+    margin: 0 2%;
+}
+/* ???ios不生效 */
+::-webkit-scrollbar {
+    display: none;
+  }
+  
+.show-account_card{
+    display: inline-block;
+    font-size: 16px;
+    height: 100rpx;
+    padding-top:20rpx;
+    align-items: center;
+    width: 100%;
 }

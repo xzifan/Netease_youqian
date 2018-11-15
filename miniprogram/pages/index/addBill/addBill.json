@@ -1,11 +1,11 @@
 {
     "usingComponents":{
-        "van-icon":"../../../vant-weapp/icon/index",
-        "van-button": "../../../vant-weapp/button/index",
         "van-tab": "../../../vant-weapp/tab/index",
         "van-tabs": "../../../vant-weapp/tabs/index",
-        "van-panel": "../../../vant-weapp/panel/index",
-        "van-field": "../../../vant-weapp/field/index"
+        "van-field": "../../../vant-weapp/field/index",
+        "icon":"../../../components/iconfont/iconfont",
+        "van-row": "../../../vant-weapp/row/index",
+        "van-col": "../../../vant-weapp/col/index"
     },
     "disableScroll": true
      
