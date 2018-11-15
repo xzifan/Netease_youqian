@@ -1,5 +1,11 @@
 
 /* miniprogram/pages/index/index.wxss */
+/* ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+  } */
+  
 .swiper{
     height: 300rpx;
     background-color: #019fff;
@@ -34,7 +40,7 @@
 /* button add */
 .center-button{
     width: 92%;
-    margin-left: 4%;
+    margin: 0 4%;
 }
 .btn-addBill,.btn-addAsset{
     margin-top: 30rpx;

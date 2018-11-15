@@ -7,6 +7,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    monthExp:0,
+    monthIncome:0,
+    myAsset:0,
+    totalAsset:0,
+    totalDept:0,
     accounts:[{
         bankName:"中国银行",
         type:"借记卡",
@@ -52,15 +57,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
     let that = this
     if (wx.getStorageSync('user')) {
       wx.login({
         success: function (res) {
           if (res.code) {
-            console.log(res.code)
             wx.getUserInfo({
               success: function (res) {
-                console.log(res)
                 var objz = res.userInfo;
                 app.globalData.userInfo = res.userInfo;
                 wx.setStorageSync('userInfo', objz);//存储userInfo
@@ -69,8 +73,6 @@ Page({
           }
         }
       })
-
-      console.log("已获取id")
       this.setData({
         userInfo:wx.getStorageSync('userInfo'),
         openid:wx.getStorageSync('user')
@@ -88,16 +90,7 @@ Page({
     // let bills = app.globalData[11561180].map((item,index)=>{
     //     if (item[time].slice(0,8))
     // })
-    let numOfBills =0;
-    this.data.recentBills.forEach(element => {
-      if (element) {
-        numOfBills+=element.length
-      }
-    });
-
-      this.setData({
-        numOfBills: numOfBills
-      })
+      
   },
 
   /**
@@ -112,10 +105,23 @@ Page({
    */
   onShow: function () {
     let dataID = wx.getStorageSync('data')
-    console.log("data:",dataID.data.id)
+    let exp=0,income=0,asset=0,tasset=0,tdept = 0;
+    dataID.data.id.bills.forEach(bill => {
+      if(bill.type=="1") exp+=(bill.total-0)
+      else if (bill.type=="0") income+=(bill.account-0)
+    });
+    dataID.data.id.accounts.forEach(account=>{
+      asset += (account.amount-0)
+    })
+    tasset=asset-tdept;
     this.setData({
       accounts:dataID.data.id.accounts,
-      recentBills:dataID.data.id.bills
+      recentBills:dataID.data.id.bills,
+      monthExp:exp.toFixed(2),
+      monthIncome:income.toFixed(2),
+      myAsset:asset.toFixed(2),
+      totalAsset:tasset.toFixed(2),
+      totalDept:tdept.toFixed(2)
     })
   },
   onReachBottom: function(){

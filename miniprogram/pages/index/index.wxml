@@ -11,7 +11,7 @@
             <van-row>
                 <van-col span="24">
                     <span class="swiper-amount">
-                        ￥6800.00
+                        ￥{{monthExp}}
                     </span>
                 </van-col>
             </van-row>
@@ -19,7 +19,7 @@
             <van-row>
                 <van-col span="10">
                     <span class="swiper-title">
-                        本月收入 <a class="mon-income">暂无收入</a>
+                        本月收入 <a class="mon-income">{{monthIncome=="0.00"?"暂无收入":monthIncome}}</a>
                     </span>
                 </van-col>
                 <van-col span="8" offset="1">
@@ -43,20 +43,20 @@
             <van-row>
                 <van-col span="24">
                     <span class="swiper-amount">
-                        ￥6800.00
+                        ￥{{myAsset}}
                     </span>
                 </van-col>
             </van-row>
-            <i class="iconfont icon-yanjing amount-view"></i>
+            <icon type="yanjing" class="amount-view" size="15" color="#eee"/>
             <van-row>
                 <van-col span="10">
                     <span class="swiper-title">
-                        总资产 <a class="total-asset">￥233.33 </a>
+                        总资产 <a class="total-asset">￥{{totalAsset}} </a>
                     </span>
                 </van-col>
                 <van-col span="8" offset="1">
                     <span class="swiper-title">
-                        总负债 <a class="total-dept">￥0.00</a>
+                        总负债 <a class="total-dept">￥{{totalDept}}</a>
                     </span>
                 </van-col>
                 
@@ -89,7 +89,7 @@
     <view >
         <block wx:for="{{accounts}}" wx:for-item="account" wx:key="account.end">       
             <view class="card accounts">
-                <icon type="{{account.icon}}yinhang" size="40" />
+                <icon type="{{account.icon}}" size="40" />
                 <van-row style="width:100%">
                     <van-col span="16">                       
                         <van-row>{{account.bankName}}</van-row>                                
@@ -111,14 +111,14 @@
 
 <view class="recentBills">
     <span class="detail-title" style="margin-left:5%">
-        近日新增账单 <a>{{numOfBills}}笔</a>
+        近日新增账单 <a>{{recentBills.length}}笔</a>
     </span>
-    <block wx:for="{{recentBills}}" wx:for-item="bill" wx:for-index="index" >           
+    <block wx:for="{{recentBills}}" wx:for-item="bill" wx:for-index="index" wx:key="">           
         <view class="card bills">       
-            <icon type="{{bill.icon}}zhifu"/>
+            <icon type="{{bill.icon}}"/>
             <van-row style="width:100%">               
                 <van-col span="15">{{bill.title}} </van-col>
-                <van-col span="5" offset="2" style="text-align:right">￥{{bill.total}}</van-col>
+                <van-col span="5" offset="2"><text style="text-align:right">￥{{bill.total}}</text></van-col>
                 <van-col span="15"><text class="font-desc">{{bill.desc}}</text> </van-col>    
                 <van-col span="6" offset="3"><text class="font-desc">{{bill.platform}}</text></van-col>
             </van-row>                
